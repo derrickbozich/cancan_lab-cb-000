@@ -3,7 +3,7 @@ class Note < ActiveRecord::Base
   has_many :readers, through: :viewers, source: :user
   belongs_to :user
 
-  accepts_nested_attributes_for :readers
+  # accepts_nested_attributes_for :readers
 
   def visible_to
     self.readers.map {|reader| reader.name }.join(", ")
