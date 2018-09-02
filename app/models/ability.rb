@@ -7,13 +7,13 @@ class Ability
     binding.pry
 
     can :manage, Note, {user_id: user.id}
-    
+
     can :read, Note do |note|
       note.readers.include? user
     end
-   
-    
-    
+
+
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
