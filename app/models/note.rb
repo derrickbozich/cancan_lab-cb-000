@@ -10,6 +10,7 @@ class Note < ActiveRecord::Base
   end
 
   def visible_to=(name_list)
+    binding.pry
     user = User.find_by_id(self.user_id)
     if user
       self.readers << user
