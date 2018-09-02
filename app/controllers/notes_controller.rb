@@ -30,7 +30,7 @@ class NotesController < ApplicationController
   end
 
   def update
-
+    binding.pry
   end
 
   def destroy
