@@ -31,6 +31,7 @@ class NotesController < ApplicationController
 
   def update
     binding.pry
+    @note = Note.find_by_id(params[:id])
   end
 
   def destroy
