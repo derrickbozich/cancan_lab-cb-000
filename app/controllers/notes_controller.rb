@@ -32,6 +32,7 @@ class NotesController < ApplicationController
   def update
     binding.pry
     @note = Note.find_by_id(params[:id])
+    
   end
 
   def destroy
@@ -41,7 +42,9 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:content, :users_attributes)
+    # params.require(:note).permit(:content, :users_attributes)
+    params.require(:note).permit(:content, :user_id, :visible_to)
+
   end
 
 
