@@ -6,11 +6,17 @@ class Ability
     return unless user
     binding.pry
 
-    can :manage, Note, {user_id: user.id}
+    if user.present?  # additional permissions for logged in users (they can manage their posts)
+      can :manage, Note, user_id: user.id
 
-    can :read, Note do |note|
-      note.readers.include? user
+      can :read, Note do |note|
+        note.readers.include? user
+      end
     end
+
+
+
+
 
 
 
