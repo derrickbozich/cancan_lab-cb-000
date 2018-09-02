@@ -25,6 +25,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find_by_id(params[:id])
+    authorize! :read, @note
   end
 
   def edit
