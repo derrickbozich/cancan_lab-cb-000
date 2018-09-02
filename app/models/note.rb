@@ -22,7 +22,7 @@ class Note < ActiveRecord::Base
   end
 
   def ensure_owner_can_read
-    if current_user && !self.readers.include?(current_user)
+    if user && !self.readers.include?(user)
       readers << user
     end
   end
