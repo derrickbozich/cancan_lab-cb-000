@@ -20,6 +20,12 @@ We could give our users passwords quite easily with `has_secure_password`. Howev
 
 3. Create a `Viewer` model. `viewers` is a join between `notes` and `users`. An entry in the `Viewer`s table means that `user` can view that `note`.
 
+rails g model User name:string --no-test-framework
+rails g model Note content:text user_id:integer --no-test-framework
+rails g model Viewer user_id:integer note_id:integer --no-test-framework
+
+
+
 Hint: There are a few ways to set up the relationship between `Note`s and `User`s. Here's what the tests expect:
 
     # user.rb
