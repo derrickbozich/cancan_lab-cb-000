@@ -12,12 +12,7 @@ class Note < ActiveRecord::Base
   end
 
   def visible_to=(name_list)
-    binding.pry
-    # user = User.find_by_id(self.user_id)
-    # if user
-    #   self.readers << user
-    # end
-
+  
     name_list.split(", ").each do |name|
       reader = User.find_by(:name => name)
       if reader
