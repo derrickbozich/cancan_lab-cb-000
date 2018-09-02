@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  
+
 
   def new
 
@@ -24,7 +24,7 @@ class NotesController < ApplicationController
   end
 
   def show
-
+    @note = Note.find_by_id(params[:id])
   end
 
   def edit
