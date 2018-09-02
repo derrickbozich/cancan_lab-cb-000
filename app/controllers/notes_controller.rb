@@ -32,7 +32,7 @@ class NotesController < ApplicationController
   end
 
   def update
-  
+
     note = Note.find_by_id(params[:id])
 
 
