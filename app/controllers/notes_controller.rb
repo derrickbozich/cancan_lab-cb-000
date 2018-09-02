@@ -38,7 +38,6 @@ class NotesController < ApplicationController
 
     note.update(note_params)
     note.save
-    binding.pry
     redirect_to '/'
 
   end
