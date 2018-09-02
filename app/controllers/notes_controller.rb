@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   def create
     if logged_in?
       @note = Note.new(:content => params[:note][:content], :user_id => session[:user_id], :visible_to => params[:note][:visible_to])
-    
+      @note = Note.new(note_params)
       if @note.save
         redirect_to '/'
       else
