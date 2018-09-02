@@ -16,6 +16,7 @@ class NotesController < ApplicationController
     else
       redirect_to '/'
     end
+    
   end
 
   def index
@@ -31,9 +32,12 @@ class NotesController < ApplicationController
   end
 
   def update
-    binding.pry
+  
     @note = Note.find_by_id(params[:id])
+    
+    
     @note.update(note_params)
+    binding.pry
     redirect_to '/'
 
   end
