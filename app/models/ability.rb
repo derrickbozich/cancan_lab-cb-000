@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     # Guests can't do anything.
     return unless user
+    binding.pry
 
     can :manage, Note, {user_id: user.id}
     
