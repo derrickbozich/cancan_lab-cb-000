@@ -3,8 +3,7 @@ class Ability
 
   def initialize(user)
     # Guests can't do anything.
-    return unless user
-    binding.pry
+
 
     if user.present?  # additional permissions for logged in users (they can manage their posts)
       can :manage, Note, user_id: user.id
