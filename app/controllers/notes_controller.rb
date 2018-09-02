@@ -1,12 +1,16 @@
 class NotesController < ApplicationController
+
+
   def new
 
   end
 
   def create
     if logged_in?
+      binding.pry
       # @note = Note.new(:content => params[:note][:content], :user_id => session[:user_id], :visible_to => params[:note][:visible_to])
       @note = Note.new(note_params)
+      @note = user.build
       if @note.save
         redirect_to '/'
       else
@@ -45,7 +49,7 @@ class NotesController < ApplicationController
 
   def note_params
     # params.require(:note).permit(:content, :users_attributes)
-    params.require(:note).permit(:content, :user_id, :visible_to)
+    params.require(:note).permit(:content, :visible_to)
 
   end
 
