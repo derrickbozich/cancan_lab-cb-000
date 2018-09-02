@@ -33,10 +33,11 @@ class NotesController < ApplicationController
 
   def update
   
-    @note = Note.find_by_id(params[:id])
+    note = Note.find_by_id(params[:id])
 
 
-    @note.update(note_params)
+    note.update(note_params)
+    note.save
     binding.pry
     redirect_to '/'
 
