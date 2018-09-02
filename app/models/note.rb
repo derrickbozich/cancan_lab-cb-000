@@ -3,6 +3,8 @@ class Note < ActiveRecord::Base
   has_many :readers, through: :viewers, source: :user
   belongs_to :user
 
+  before_save :ensure_owner_can_read
+
   # accepts_nested_attributes_for :readers
 
   def visible_to
@@ -23,5 +25,11 @@ class Note < ActiveRecord::Base
       end
     end
     self.readers
+  end
+
+  def ensure_owner_can_read
+    if user && !self.readers.include?(user)
+      readers << user
+    end
   end
 end
