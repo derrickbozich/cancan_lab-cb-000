@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     binding.pry
+    user ||= User.new # guest user (not logged in)
     if user.viewer?
 
     end
