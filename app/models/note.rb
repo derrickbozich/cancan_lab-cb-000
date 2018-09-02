@@ -12,7 +12,6 @@ class Note < ActiveRecord::Base
   end
 
   def visible_to=(name_list)
-  
     name_list.split(", ").each do |name|
       reader = User.find_by(:name => name)
       if reader
